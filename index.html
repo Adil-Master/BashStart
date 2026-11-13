@@ -90,6 +90,13 @@
         .btn-light { background: #FFFFFF; color: #20753D; }
         .btn-light:hover { background: #c8ffda; }
 
+        /* RuStore: вторичная кнопка с фирменной заливкой */
+        .btn-rustore {
+            background: #0055FF;
+            color: #FFFFFF;
+        }
+        .btn-rustore:hover { background: #0043CC; }
+
         .btn-group { display: flex; flex-wrap: wrap; gap: 12px; }
 
         /* Hero */
@@ -411,6 +418,11 @@
             padding: 12px 20px;
             font-size: 15px;
         }
+        .download-card .btn-group {
+            margin-top: auto;
+            flex-direction: column;
+        }
+        .download-card .btn-group .btn { margin-top: 0; }
 
         /* iOS instruction */
         .ios-instruction {
@@ -676,9 +688,14 @@
                     <div class="download-icon"><i class="fab fa-android"></i></div>
                     <h3>Android</h3>
                     <div class="download-meta">APK · Версия 1.0.0</div>
-                    <a href="https://github.com/Adil-Master/BashLearn/releases/download/1.0.0/BashLearn_v1.0.0.apk" class="btn btn-primary">
-                        <i class="fas fa-download"></i> Скачать APK
-                    </a>
+                    <div class="btn-group">
+                        <a href="https://github.com/Adil-Master/BashLearn/releases/download/1.0.0/BashLearn_v1.0.0.apk" class="btn btn-primary">
+                            <i class="fas fa-download"></i> Скачать APK
+                        </a>
+                        <a href="https://www.rustore.ru/catalog/app/org.bashlearn.app" class="btn btn-rustore">
+                            <i class="fas fa-store"></i> Загрузить из RuStore
+                        </a>
+                    </div>
                 </div>
                 <div class="download-card">
                     <div class="download-icon"><i class="fab fa-windows"></i></div>
