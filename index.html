@@ -26,7 +26,6 @@
 
         .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
 
-        /* Header */
         header {
             background: #FFFFFF;
             padding: 20px 0;
@@ -59,7 +58,6 @@
         }
         nav a:hover { background: #f4fdf7; }
 
-        /* Buttons */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -90,7 +88,6 @@
         .btn-light { background: #FFFFFF; color: #20753D; }
         .btn-light:hover { background: #c8ffda; }
 
-        /* RuStore: вторичная кнопка с фирменной заливкой */
         .btn-rustore {
             background: #0055FF;
             color: #FFFFFF;
@@ -99,7 +96,6 @@
 
         .btn-group { display: flex; flex-wrap: wrap; gap: 12px; }
 
-        /* Hero */
         .hero { padding: 80px 0 100px; background: #c8ffda; }
         .hero-inner {
             display: grid;
@@ -136,7 +132,6 @@
             max-width: 500px;
         }
 
-        /* Phone Mockup - УВЕЛИЧЕН */
         .hero-image { display: flex; justify-content: center; }
         .phone {
             width: 320px;
@@ -174,7 +169,6 @@
             position: relative;
         }
         
-        /* App UI mimicking screenshot */
         .app-top-bar {
             display: flex;
             align-items: center;
@@ -374,7 +368,6 @@
         }
         .feature-card p { color: #20753D; opacity: 0.72; font-size: 15.5px; }
 
-        /* Downloads */
         .downloads { padding: 96px 0; background: #c8ffda; }
         .downloads-grid {
             display: grid;
@@ -424,7 +417,6 @@
         }
         .download-card .btn-group .btn { margin-top: 0; }
 
-        /* iOS instruction */
         .ios-instruction {
             margin-top: 32px;
             background: #FFFFFF;
@@ -477,7 +469,6 @@
             text-underline-offset: 2px;
         }
 
-        /* CTA */
         .cta {
             padding: 80px 0;
             background: #20753D;
@@ -493,7 +484,6 @@
         .cta p { font-size: 17px; opacity: 0.85; margin-bottom: 28px; }
         .cta .btn-group { justify-content: center; }
 
-        /* Footer */
         footer {
             background: #FFFFFF;
             padding: 36px 0;
@@ -517,7 +507,6 @@
         .footer-links a:hover { opacity: 1; }
         .copyright { color: #20753D; opacity: 0.55; font-size: 14px; }
 
-        /* Responsive */
         @media (max-width: 880px) {
             .hero-inner {
                 grid-template-columns: 1fr;
@@ -529,7 +518,6 @@
                 margin-right: auto;
             }
             .hero-text .btn-group { justify-content: center; }
-            /* На мобильных устройствах немного уменьшаем телефон, чтобы не было переполнения */
             .phone {
                 transform: scale(0.9);
                 transform-origin: top center;
@@ -586,7 +574,6 @@
             <div class="hero-image">
                 <div class="phone">
                     <div class="phone-screen">
-                        <!-- Top Bar -->
                         <div class="app-top-bar">
                             <div class="app-menu-btn">
                                 <span></span><span></span><span></span>
@@ -594,7 +581,6 @@
                             <div class="app-title">BashStart</div>
                         </div>
 
-                        <!-- Welcome Card -->
                         <div class="app-welcome">
                             <div class="app-star-badge">
                                 <i class="fas fa-star"></i>
@@ -749,6 +735,15 @@
                 <a href="mailto:bashstart.app@yandex.ru" class="btn btn-light">
                     <i class="fas fa-envelope"></i> bashstart.app@yandex.ru
                 </a>
+                <a href="https://vk.ru/bashstart_app" class="btn btn-light">
+                    <i class="fa-brands fa-vk fa-xl"></i>
+                    <span>Сообщество ВК</span>
+                </a>
+
+                <a href="https://t.me/bashstart_app" class="btn btn-light">
+                    <i class="fa-brands fa-telegram fa-xl"></i>
+                    <span>Канал в Telegram</span>
+                </a>
             </div>
         </div>
     </section>
@@ -760,6 +755,16 @@
                 <a href="about.html">О нас</a>
                 <a href="mailto:bashstart.app@yandex.ru">Контакты</a>
                 <a href="terms.html">Пользовательское соглашение и Политика конфиденциальности</a>
+
+                <a href="https://vk.ru/bashstart_app">
+                    <i class="fa-brands fa-vk fa-xl"></i>
+                    <span>Сообщество ВК</span>
+                </a>
+
+                <a href="https://t.me/bashstart_app">
+                    <i class="fa-brands fa-telegram fa-xl"></i>
+                    <span>Канал в Telegram</span>
+                </a>
             </div>
             <div class="copyright">© 2026 BashStart</div>
         </div>
