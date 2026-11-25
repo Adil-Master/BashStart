@@ -1,5 +1,5 @@
 # BashStart
-### Загрузить приложение BashLearn
+### Загрузить приложение BashStart
 
 ## Ссылки
 * [Веб сайт проекта](https://adil-master.github.io/BashStart/)
