@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Контакты – BashStart</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+
+    <style>
+        @import url('https://static.tildacdn.com/css/tilda-sans.css');
+        body { font-family: 'Tilda Sans', 'Inter', sans-serif; }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <style>
+        html { scroll-behavior: smooth; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Tilda Sans', 'Inter', sans-serif;
+            background: #FFFFFF;
+            color: #20753D;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+
+        header {
+            background: #FFFFFF;
+            padding: 20px 0;
+            border-bottom: 1px solid #e8f5ee;
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #20753D;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        .logo span { color: #52D47A; }
+        nav { display: flex; gap: 4px; flex-wrap: wrap; }
+        nav a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #20753D;
+            font-size: 15px;
+            padding: 8px 14px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+        nav a:hover { background: #f4fdf7; }
+        nav a.active { background: #f4fdf7; font-weight: 600; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.1s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: inherit;
+        }
+        .btn:active { transform: translateY(1px); }
+
+        .btn-primary { background: #52D47A; color: #FFFFFF; }
+        .btn-primary:hover { background: #41B258; }
+
+        .btn-outline {
+            background: transparent;
+            color: #20753D;
+            box-shadow: inset 0 0 0 2px #20753D;
+        }
+        .btn-outline:hover { background: #20753D; color: #FFFFFF; }
+
+        .btn-light { background: #FFFFFF; color: #20753D; }
+        .btn-light:hover { background: #c8ffda; }
+
+        .btn-group { display: flex; flex-wrap: wrap; gap: 12px; }
+
+        .section-title {
+            font-size: clamp(28px, 3.5vw, 40px);
+            font-weight: 800;
+            letter-spacing: -0.8px;
+            color: #20753D;
+            line-height: 1.15;
+            margin-bottom: 12px;
+        }
+        .section-subtitle {
+            font-size: 17px;
+            color: #20753D;
+            opacity: 0.7;
+            max-width: 560px;
+        }
+        .section-head { margin-bottom: 48px; }
+        .section-head.center { text-align: center; }
+        .section-head.center .section-subtitle { margin: 0 auto; }
+
+        .contacts-hero {
+            padding: 76px 0 56px;
+            background: #c8ffda;
+            text-align: center;
+        }
+        .contacts-hero .hero-tag {
+            display: inline-block;
+            background: #FFFFFF;
+            color: #20753D;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .contacts-hero h1 {
+            font-size: clamp(34px, 5vw, 52px);
+            font-weight: 800;
+            color: #20753D;
+            line-height: 1.08;
+            letter-spacing: -1.2px;
+            margin-bottom: 18px;
+        }
+        .contacts-hero p {
+            font-size: 18px;
+            color: #20753D;
+            opacity: 0.82;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .contact-methods { padding: 88px 0 40px; }
+        .contact-methods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            align-items: stretch;
+        }
+        .contact-method-card {
+            background: #f4fdf7;
+            border: 1px solid #e8f5ee;
+            padding: 36px 32px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+        .contact-method-card:hover {
+            border-color: #c8ffda;
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(32, 117, 61, 0.08);
+        }
+        .contact-method-icon {
+            width: 60px;
+            height: 60px;
+            background: #20753D;
+            color: #c8ffda;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            margin-bottom: 22px;
+        }
+        .contact-method-card h3 {
+            font-size: 21px;
+            font-weight: 700;
+            color: #20753D;
+            margin-bottom: 10px;
+        }
+        .contact-method-card .contact-desc {
+            font-size: 15.5px;
+            color: #20753D;
+            opacity: 0.78;
+            margin-bottom: 22px;
+            line-height: 1.55;
+        }
+        .contact-value {
+            font-size: 15px;
+            font-weight: 600;
+            color: #20753D;
+            margin-bottom: 24px;
+            word-break: break-word;
+        }
+        .contact-method-card .btn {
+            margin-top: auto;
+            width: 100%;
+            padding: 13px 20px;
+            font-size: 15px;
+        }
+
+        .reasons { padding: 48px 0 96px; }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+        .feature-card {
+            background: #f4fdf7;
+            border: 1px solid #e8f5ee;
+            padding: 32px 28px;
+            border-radius: 16px;
+        }
+        .feature-card .icon {
+            width: 44px;
+            height: 44px;
+            background: #20753D;
+            color: #c8ffda;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .feature-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #20753D;
+            margin-bottom: 8px;
+        }
+        .feature-card p { color: #20753D; opacity: 0.72; font-size: 15px; }
+
+        footer {
+            background: #FFFFFF;
+            padding: 36px 0;
+            border-top: 1px solid #e8f5ee;
+        }
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .footer-links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+        .footer-links a {
+            color: #20753D;
+            text-decoration: none;
+            font-size: 15px;
+            opacity: 0.78;
+            transition: opacity 0.2s;
+        }
+        .footer-links a:hover { opacity: 1; }
+        .copyright { color: #20753D; opacity: 0.55; font-size: 14px; }
+
+        @media (max-width: 640px) {
+            .contacts-hero { padding: 48px 0 40px; }
+            .contact-methods, .reasons { padding: 56px 0; }
+            .header-inner { justify-content: center; }
+            nav { justify-content: center; }
+            .btn { padding: 13px 22px; font-size: 15px; }
+            .contact-method-card { padding: 28px 24px; }
+        }
+        @media (max-width: 480px) {
+            .btn-group { flex-direction: column; align-items: stretch; }
+            .btn-group .btn { width: 100%; }
+            .footer-inner { flex-direction: column; text-align: center; }
+            .footer-links { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="index.html" class="logo">Bash<span>Start</span></a>
+            <nav>
+                <a href="index.html#download">Скачать</a>
+                <a href="about.html">О нас</a>
+                <a href="contacts.html" class="active">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="contacts-hero">
+        <div class="container">
+            <div class="hero-tag">Наши каналы</div>
+            <h1>Контакты</h1>
+            <p>
+                Наши социальные сети — это новости проекта, анонсы обновлений 
+                и обратная связь. Здесь можно отправить письмо, предложение 
+                или задать вопрос — мы читаем все сообщения.
+            </p>
+        </div>
+    </section>
+
+    <section class="contact-methods">
+        <div class="container">
+            <div class="section-head center">
+                <h2 class="section-title">Способы связи</h2>
+                <p class="section-subtitle">
+                    Свяжитесь с нами одним из нескольких способов или следите за проектом в наших соцсетях
+                </p>
+            </div>
+
+            <div class="contact-methods-grid">
+                <div class="contact-method-card">
+                    <div class="contact-method-icon"><i class="fas fa-envelope"></i></div>
+                    <h3>Электронная почта</h3>
+                    <p class="contact-desc">
+                        Официальные обращения, сообщения об ошибках, сотрудничество 
+                        и любые вопросы по приложению. Здесь можно отправить письмо 
+                        или предложение — мы читаем каждое сообщение лично.
+                    </p>
+                    <div class="contact-value">bashstart.app@yandex.ru</div>
+                    <a href="mailto:bashstart.app@yandex.ru" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Написать на почту
+                    </a>
+                </div>
+
+                <div class="contact-method-card">
+                    <div class="contact-method-icon"><i class="fa-brands fa-vk"></i></div>
+                    <h3>Сообщество ВКонтакте</h3>
+                    <p class="contact-desc">
+                        Новости проекта, обсуждения и живая обратная связь. 
+                        Задайте вопрос или отправьте предложение — на него ответим 
+                        мы или другие участники сообщества.
+                    </p>
+                    <div class="contact-value">vk.ru/bashstart_app</div>
+                    <a href="https://vk.ru/bashstart_app" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i> Открыть сообщество
+                    </a>
+                </div>
+
+                <div class="contact-method-card">
+                    <div class="contact-method-icon"><i class="fa-brands fa-telegram"></i></div>
+                    <h3>Канал в Telegram</h3>
+                    <p class="contact-desc">
+                        Анонсы обновлений, короткие новости и опросы. Подпишитесь, 
+                        чтобы первыми узнавать о новых уроках и функциях, 
+                        и напишите нам напрямую.
+                    </p>
+                    <div class="contact-value">t.me/bashstart_app</div>
+                    <a href="https://t.me/bashstart_app" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt"></i> Открыть канал
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reasons">
+        <div class="container">
+            <div class="section-head center">
+                <h2 class="section-title">О чём можно написать</h2>
+                <p class="section-subtitle">
+                    Любой вопрос важен. Выберите тему — и напишите удобным способом.
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon"><i class="fas fa-bug"></i></div>
+                    <h3>Сообщить об ошибке</h3>
+                    <p>Что-то работает не так или приложение зависает? Опишите проблему — мы исправим.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>Предложить идею</h3>
+                    <p>Есть мысль для нового урока или функции? Мы открыты к предложениям и обсуждаем их.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon"><i class="fas fa-handshake"></i></div>
+                    <h3>Сотрудничество</h3>
+                    <p>Хотите помочь с переводами, озвучкой или развитием проекта? Будем рады знакомству.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon"><i class="fas fa-circle-question"></i></div>
+                    <h3>Задать вопрос</h3>
+                    <p>Не нашли ответ в приложении или на сайте? Спросите нас напрямую — подскажем.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-inner">
+            <div class="logo" style="font-size: 20px;">Bash<span>Start</span></div>
+            <div class="footer-links">
+                <a href="about.html">О нас</a>
+                <a href="contacts.html">Контакты</a>
+                <a href="terms.html">Пользовательское соглашение и Политика конфиденциальности</a>
+
+                <a href="https://vk.ru/bashstart_app">
+                    <i class="fa-brands fa-vk fa-xl"></i>
+                    <span>Сообщество ВК</span>
+                </a>
+
+                <a href="https://t.me/bashstart_app">
+                    <i class="fa-brands fa-telegram fa-xl"></i>
+                    <span>Канал в Telegram</span>
+                </a>
+            </div>
+            <div class="copyright">© 2026 BashStart</div>
+        </div>
+    </footer>
+
+</body>
+</html>
